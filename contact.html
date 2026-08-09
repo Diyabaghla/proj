@@ -1,0 +1,245 @@
+<header
+  id="siteHeader"
+  class="fixed top-0 left-0 right-0 z-[100] transition-all duration-300 bg-[#F4F3EF]/90 backdrop-blur-md shadow-[0_1px_0_#D8D5CA] py-4"
+>
+  <div class="max-w-[1160px] mx-auto px-7">
+    <nav class="flex items-center justify-between">
+      <a routerLink="/" class="font-serif text-xl text-[#1D3D36] flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-[#A87B4F] inline-block"></span>
+        Filewise
+      </a>
+
+      <div class="hidden md:flex gap-8 text-sm text-[#5B655F]">
+        <a routerLink="/" fragment="motive" class="hover:text-[#26312E] transition-colors">Why it exists</a>
+        <a routerLink="/" fragment="features" class="hover:text-[#26312E] transition-colors">Features</a>
+        <a routerLink="/" fragment="workflow" class="hover:text-[#26312E] transition-colors">Workflow</a>
+        <a routerLink="/contact" class="text-[#1D3D36] font-semibold">Contact</a>
+      </div>
+
+      <a
+        routerLink="/login"
+        class="inline-flex items-center gap-2 bg-[#1D3D36] text-[#FBFAF7] px-5 py-2.5 rounded-full text-sm font-semibold border border-[#1D3D36] transition-all hover:bg-[#2F5D53] hover:-translate-y-0.5 hover:shadow-[0_10px_22px_-4px_rgba(29,61,54,0.35)]"
+      >
+        Start your journey
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main class="bg-[#F4F3EF] text-[#26312E] overflow-x-hidden min-h-screen pt-[150px] pb-24 px-7">
+  <div class="max-w-[1160px] mx-auto">
+
+    <!-- Intro -->
+    <div class="reveal in max-w-[640px] mb-14">
+      <p class="uppercase tracking-[0.14em] text-xs font-semibold text-[#2F5D53]">Get in touch</p>
+      <h1 class="font-serif font-medium text-[32px] md:text-[44px] leading-[1.1] text-[#1D3D36] mt-3 mb-4 tracking-tight">
+        Questions about your <em class="italic text-[#A87B4F]">envelope</em>? We're here.
+      </h1>
+      <p class="text-[17px] text-[#5B655F]">
+        Whether you're stuck mid-upload, waiting on a spouse's KBA verification, or just want to know
+        how the remote signing flow works — send us a note and a tax professional will follow up.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-10">
+
+      <!-- Contact info -->
+      <div class="reveal-stagger flex flex-col gap-5">
+        <div class="bg-[#FBFAF7] border border-[#D8D5CA] rounded-2xl p-6 flex items-start gap-4">
+          <div class="w-11 h-11 rounded-xl bg-[#ECEAE3] flex items-center justify-center text-[#1D3D36] shrink-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5">
+              <path d="M4 5h16v14H4z"/>
+              <path d="M4 6l8 7 8-7"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-[15.5px] font-semibold text-[#1D3D36] mb-1">Email support</h3>
+            <p class="text-sm text-[#5B655F]">support&#64;filewise.com</p>
+            <p class="text-xs text-[#8A9188] mt-1">Replies within one business day.</p>
+          </div>
+        </div>
+
+        <div class="bg-[#FBFAF7] border border-[#D8D5CA] rounded-2xl p-6 flex items-start gap-4">
+          <div class="w-11 h-11 rounded-xl bg-[#ECEAE3] flex items-center justify-center text-[#1D3D36] shrink-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5">
+              <path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.9.7 2.7a2 2 0 01-.4 2.2L8 10a16 16 0 006 6l1.4-1.4a2 2 0 012.2-.4c.9.3 1.8.6 2.7.7A2 2 0 0122 16.9z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-[15.5px] font-semibold text-[#1D3D36] mb-1">Phone</h3>
+            <p class="text-sm text-[#5B655F]">1-800-555-0134</p>
+            <p class="text-xs text-[#8A9188] mt-1">Mon–Fri, 8am–7pm local time.</p>
+          </div>
+        </div>
+
+        <div class="bg-[#FBFAF7] border border-[#D8D5CA] rounded-2xl p-6 flex items-start gap-4">
+          <div class="w-11 h-11 rounded-xl bg-[#ECEAE3] flex items-center justify-center text-[#1D3D36] shrink-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5">
+              <path d="M12 21s7-6.3 7-11.5A7 7 0 105 9.5C5 14.7 12 21 12 21z"/>
+              <circle cx="12" cy="9.5" r="2.4"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-[15.5px] font-semibold text-[#1D3D36] mb-1">Office</h3>
+            <p class="text-sm text-[#5B655F]">In-office filing still available if you'd rather come in.</p>
+          </div>
+        </div>
+
+        <div class="bg-[#1D3D36] text-[#FBFAF7] rounded-2xl p-6">
+          <h3 class="text-[15.5px] font-semibold mb-2">Already mid-envelope?</h3>
+          <p class="text-sm text-[#C9D8D2] mb-4">Include your envelope ID (e.g. #ENV-48213) so we can pull up your status right away.</p>
+          <a routerLink="/login" class="inline-flex items-center gap-2 text-sm font-semibold text-[#EFE7D8] hover:text-white transition-colors">
+            Go to your dashboard
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <div class="reveal bg-[#FBFAF7] border border-[#D8D5CA] rounded-[20px] p-8 shadow-[0_24px_60px_-30px_rgba(31,45,41,0.35)]">
+
+        <div *ngIf="!submitted; else successState">
+          <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" novalidate>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label for="name" class="block text-[13px] text-[#5B655F] mb-1.5">Full name</label>
+                <input
+                  id="name" name="name" type="text" required
+                  [(ngModel)]="model.name" #name="ngModel"
+                  placeholder="Jordan Miles"
+                  class="w-full px-3.5 py-2.5 border border-[#D8D5CA] rounded-lg bg-[#F4F3EF] text-[14.5px] text-[#26312E] focus:outline-none focus:border-[#2F5D53] focus:ring-2 focus:ring-[#2F5D53]/15 transition-all"
+                />
+                <p *ngIf="name.invalid && name.touched" class="text-xs text-[#B4553F] mt-1.5">Please enter your name.</p>
+              </div>
+
+              <div>
+                <label for="email" class="block text-[13px] text-[#5B655F] mb-1.5">Email</label>
+                <input
+                  id="email" name="email" type="email" required email
+                  [(ngModel)]="model.email" #email="ngModel"
+                  placeholder="you&#64;example.com"
+                  class="w-full px-3.5 py-2.5 border border-[#D8D5CA] rounded-lg bg-[#F4F3EF] text-[14.5px] text-[#26312E] focus:outline-none focus:border-[#2F5D53] focus:ring-2 focus:ring-[#2F5D53]/15 transition-all"
+                />
+                <p *ngIf="email.invalid && email.touched" class="text-xs text-[#B4553F] mt-1.5">Enter a valid email address.</p>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <label for="envelopeId" class="block text-[13px] text-[#5B655F] mb-1.5">Envelope ID <span class="text-[#8A9188]">(optional)</span></label>
+              <input
+                id="envelopeId" name="envelopeId" type="text"
+                [(ngModel)]="model.envelopeId"
+                placeholder="#ENV-48213"
+                class="w-full px-3.5 py-2.5 border border-[#D8D5CA] rounded-lg bg-[#F4F3EF] text-[14.5px] text-[#26312E] focus:outline-none focus:border-[#2F5D53] focus:ring-2 focus:ring-[#2F5D53]/15 transition-all"
+              />
+            </div>
+
+            <div class="mb-5">
+              <label for="topic" class="block text-[13px] text-[#5B655F] mb-1.5">What's this about?</label>
+              <select
+                id="topic" name="topic" required
+                [(ngModel)]="model.topic" #topic="ngModel"
+                class="w-full px-3.5 py-2.5 border border-[#D8D5CA] rounded-lg bg-[#F4F3EF] text-[14.5px] text-[#26312E] focus:outline-none focus:border-[#2F5D53] focus:ring-2 focus:ring-[#2F5D53]/15 transition-all"
+              >
+                <option value="" disabled selected>Select a topic</option>
+                <option *ngFor="let t of topics" [value]="t">{{ t }}</option>
+              </select>
+              <p *ngIf="topic.invalid && topic.touched" class="text-xs text-[#B4553F] mt-1.5">Please choose a topic.</p>
+            </div>
+
+            <div class="mb-6">
+              <label for="message" class="block text-[13px] text-[#5B655F] mb-1.5">Message</label>
+              <textarea
+                id="message" name="message" rows="5" required minlength="10"
+                [(ngModel)]="model.message" #message="ngModel"
+                placeholder="Tell us what's going on..."
+                class="w-full px-3.5 py-2.5 border border-[#D8D5CA] rounded-lg bg-[#F4F3EF] text-[14.5px] text-[#26312E] focus:outline-none focus:border-[#2F5D53] focus:ring-2 focus:ring-[#2F5D53]/15 transition-all resize-none"
+              ></textarea>
+              <p *ngIf="message.invalid && message.touched" class="text-xs text-[#B4553F] mt-1.5">Message should be at least 10 characters.</p>
+            </div>
+
+            <button
+              type="submit"
+              [disabled]="isSubmitting"
+              class="w-full inline-flex items-center justify-center gap-2 bg-[#1D3D36] text-[#FBFAF7] px-5 py-3 rounded-full text-sm font-semibold border border-[#1D3D36] transition-all hover:bg-[#2F5D53] disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {{ isSubmitting ? 'Sending…' : 'Send message' }}
+              <svg *ngIf="!isSubmitting" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <ng-template #successState>
+          <div class="flex flex-col items-center text-center py-10">
+            <div class="w-14 h-14 rounded-full bg-[#ECEAE3] flex items-center justify-center text-[#2F5D53] mb-5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-7 h-7">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+            </div>
+            <h3 class="font-serif text-xl text-[#1D3D36] mb-2">Message sent</h3>
+            <p class="text-sm text-[#5B655F] max-w-[320px] mb-6">
+              Thanks, {{ model.name }}. A tax professional will get back to you at {{ model.email }} soon.
+            </p>
+            <button
+              (click)="resetForm()"
+              class="inline-flex items-center gap-2 bg-transparent text-[#1D3D36] px-5 py-2.5 rounded-full text-sm font-semibold border border-[#D8D5CA] hover:border-[#1D3D36] transition-colors"
+            >
+              Send another message
+            </button>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="bg-[#1D3D36] text-[#CBD8D2] pt-16 pb-8 px-7">
+  <div class="max-w-[1160px] mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 pb-11 border-b border-white/10">
+      <div class="col-span-2 md:col-span-1">
+        <a routerLink="/" class="font-serif text-xl text-[#FBFAF7] flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 rounded-full bg-[#A87B4F] inline-block"></span>
+          Filewise
+        </a>
+        <p class="text-[13.5px] text-[#9FB3AC] max-w-[260px]">A remote signing workflow for tax returns — upload, sign, verify, done.</p>
+      </div>
+      <div>
+        <h4 class="text-xs tracking-[0.08em] uppercase text-[#9FC6BA] mb-4">Product</h4>
+        <ul class="flex flex-col gap-2.5 text-sm">
+          <li><a routerLink="/" fragment="features" class="hover:text-[#FBFAF7] transition-colors">Features</a></li>
+          <li><a routerLink="/" fragment="workflow" class="hover:text-[#FBFAF7] transition-colors">Workflow</a></li>
+          <li><a routerLink="/" fragment="motive" class="hover:text-[#FBFAF7] transition-colors">Why it exists</a></li>
+          <li><a routerLink="/login" class="hover:text-[#FBFAF7] transition-colors">Start your journey</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs tracking-[0.08em] uppercase text-[#9FC6BA] mb-4">Company</h4>
+        <ul class="flex flex-col gap-2.5 text-sm">
+          <li><a routerLink="/" class="hover:text-[#FBFAF7] transition-colors">About</a></li>
+          <li><a routerLink="/contact" class="hover:text-[#FBFAF7] transition-colors">Contact</a></li>
+          <li><a routerLink="/" class="hover:text-[#FBFAF7] transition-colors">Careers</a></li>
+          <li><a routerLink="/" class="hover:text-[#FBFAF7] transition-colors">Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs tracking-[0.08em] uppercase text-[#9FC6BA] mb-4">Legal</h4>
+        <ul class="flex flex-col gap-2.5 text-sm">
+          <li><a routerLink="/" class="hover:text-[#FBFAF7] transition-colors">Privacy policy</a></li>
+          <li><a routerLink="/" class="hover:text-[#FBFAF7] transition-colors">Terms of service</a></li>
+          <li><a routerLink="/" class="hover:text-[#FBFAF7] transition-colors">Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex justify-between items-center pt-6 text-[13px] text-[#8FA69E] flex-wrap gap-3">
+      <span>© 2026 Filewise. All rights reserved.</span>
+      <span>Built for remote, verified tax filing.</span>
+    </div>
+  </div>
+</footer>

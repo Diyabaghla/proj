@@ -1,0 +1,49 @@
+/*
+  Styled primarily with Tailwind utility classes in contact.html.
+  This file only holds what Tailwind utilities can't express directly:
+  the scroll-reveal transition states toggled by IntersectionObserver
+  in contact.ts.
+
+  Tailwind must already be set up globally (tailwind.config + the
+  @tailwind base/components/utilities directives in src/styles.css),
+  with the config's `content` globs covering this component's .html file,
+  e.g. "src/app/**/*.{html,ts}".
+*/
+
+:host {
+  display: block;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+:host ::ng-deep .font-serif {
+  font-family: 'Fraunces', serif;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-stagger.in > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger.in > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger.in > *:nth-child(2) { transition-delay: 0.14s; }
+.reveal-stagger.in > *:nth-child(3) { transition-delay: 0.23s; }
+.reveal-stagger.in > *:nth-child(4) { transition-delay: 0.32s; }
+
+::selection {
+  background: #a87b4f;
+  color: #fbfaf7;
+}
