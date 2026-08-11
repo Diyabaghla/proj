@@ -1,0 +1,58 @@
+/*
+  Styled primarily with Tailwind utility classes in taxpro-dashboard.html.
+  This file only holds what Tailwind utilities can't express directly.
+
+  Tailwind must already be set up globally (tailwind.config + the
+  @tailwind base/components/utilities directives in src/styles.css),
+  with the config's `content` globs covering this component's .html file,
+  e.g. "src/app/**/*.{html,ts}".
+*/
+
+:host {
+  display: block;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+:host ::ng-deep .font-serif {
+  font-family: 'Fraunces', serif;
+}
+
+/* Smooth appearance for modals */
+:host ::ng-deep .fixed.inset-0 {
+  animation: fadeIn 0.18s ease both;
+}
+:host ::ng-deep .fixed.inset-0 > div:last-child {
+  animation: modalRise 0.22s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalRise {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Table row hover already handled by Tailwind, this just smooths borders */
+table {
+  border-spacing: 0;
+}
+
+::selection {
+  background: #a87b4f;
+  color: #fbfaf7;
+}
+
+/* Hide native number input spinners for a cleaner field-placement form */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  opacity: 0.4;
+}
