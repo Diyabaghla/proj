@@ -1,0 +1,85 @@
+<div class="backdrop" (click)="onBackdropClick()">
+  <div
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-label]="repo().name + ' appsettings.json'"
+    (click)="$event.stopPropagation()"
+  >
+    <header class="modal__header">
+      <div class="modal__title-group">
+        <span class="modal__file-icon">{{ '{ }' }}</span>
+        <div>
+          <p class="modal__eyebrow">{{ repo().name }}</p>
+          <h2 class="modal__title">appsettings.json</h2>
+        </div>
+      </div>
+      <button type="button" class="modal__close" (click)="close()" aria-label="Close">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5 5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+
+    <div class="modal__toolbar">
+      <span class="modal__meta">{{ lineCount() }} lines</span>
+      <div class="modal__actions">
+        <button type="button" class="modal__btn" (click)="copyAll()">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <rect x="7" y="7" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M4.5 12.5v-7A1.5 1.5 0 0 1 6 4h7" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
+          Copy
+        </button>
+
+        @if (!editing()) {
+          <button type="button" class="modal__btn" (click)="startEdit()">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M12.9 4.6 15.4 7.1 6.8 15.7 3.9 16.1 4.3 13.2 12.9 4.6Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            </svg>
+            Edit
+          </button>
+        } @else {
+          <button type="button" class="modal__btn" (click)="cancelEdit()">Cancel</button>
+          <button type="button" class="modal__btn modal__btn--primary" (click)="saveEdit()">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Save
+          </button>
+        }
+
+        <button type="button" class="modal__btn modal__btn--danger" (click)="askDelete()">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 6h10M8.5 6V4.5h3V6M6 6l.6 9.2A1 1 0 0 0 7.6 16h4.8a1 1 0 0 0 1-.8L14 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Delete
+        </button>
+      </div>
+    </div>
+
+    <div class="modal__body">
+      @if (editing()) {
+        <textarea
+          class="modal__editor"
+          spellcheck="false"
+          [value]="draft()"
+          (input)="draft.set($any($event.target).value)"
+        ></textarea>
+      } @else {
+        <pre class="modal__code"><code>{{ draft() }}</code></pre>
+      }
+    </div>
+
+    @if (confirmingDelete()) {
+      <div class="confirm">
+        <div class="confirm__panel">
+          <p class="confirm__title">Delete {{ repo().name }} from LaunchPad?</p>
+          <p class="confirm__body">This removes the card and its appsettings.json from this dashboard. This can't be undone here.</p>
+          <div class="confirm__actions">
+            <button type="button" class="modal__btn" (click)="cancelDelete()">Keep repo</button>
+            <button type="button" class="modal__btn modal__btn--danger modal__btn--fill" (click)="confirmDelete()">Delete repo</button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
