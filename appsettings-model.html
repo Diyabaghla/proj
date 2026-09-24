@@ -3,7 +3,7 @@
     class="modal"
     role="dialog"
     aria-modal="true"
-    [attr.aria-label]="repo().name + ' appsettings.json'"
+    [attr.aria-label]="repo().name + ' ' + fileName()"
     (click)="$event.stopPropagation()"
   >
     <header class="modal__header">
@@ -11,7 +11,7 @@
         <span class="modal__file-icon">{{ '{ }' }}</span>
         <div>
           <p class="modal__eyebrow">{{ repo().name }}</p>
-          <h2 class="modal__title">appsettings.json</h2>
+          <h2 class="modal__title">{{ fileName() }}</h2>
         </div>
       </div>
       <button type="button" class="modal__close" (click)="close()" aria-label="Close">
@@ -73,7 +73,7 @@
       <div class="confirm">
         <div class="confirm__panel">
           <p class="confirm__title">Delete {{ repo().name }} from LaunchPad?</p>
-          <p class="confirm__body">This removes the card and its appsettings.json from this dashboard. This can't be undone here.</p>
+          <p class="confirm__body">This removes the card and both its settings files (appsettings.json and appsettings.development.json) from this dashboard. This can't be undone here.</p>
           <div class="confirm__actions">
             <button type="button" class="modal__btn" (click)="cancelDelete()">Keep repo</button>
             <button type="button" class="modal__btn modal__btn--danger modal__btn--fill" (click)="confirmDelete()">Delete repo</button>
