@@ -8,6 +8,7 @@ export const INITIAL_REPOS: Repo[] = [
     team: 'Billing',
     qaLink: 'https://qa.internal.example.com/invoice-service',
     repoLink: 'https://github.com/example-org/invoice-service',
+    websiteLink: 'https://invoice-service.internal.example.com',
     appSettings: `{
   "Environment": "QA",
   "ConnectionStrings": {
@@ -29,6 +30,27 @@ export const INITIAL_REPOS: Repo[] = [
     "NotificationService": "https://qa.internal.example.com/notification-service"
   }
 }`,
+    appSettingsDevelopment: `{
+  "Environment": "Development",
+  "ConnectionStrings": {
+    "InvoiceDb": "Server=localhost;Database=InvoiceDb_Dev;Trusted_Connection=True;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Debug",
+      "Microsoft": "Information"
+    }
+  },
+  "InvoiceSettings": {
+    "TaxRateDefault": 0.18,
+    "CurrencyCode": "USD",
+    "RetryOnFailure": 0
+  },
+  "Dependencies": {
+    "PaymentGateway": "https://localhost:5002",
+    "NotificationService": "https://localhost:5003"
+  }
+}`,
   },
   {
     id: 'payment-gateway',
@@ -37,6 +59,7 @@ export const INITIAL_REPOS: Repo[] = [
     team: 'Payments',
     qaLink: 'https://qa.internal.example.com/payment-gateway',
     repoLink: 'https://github.com/example-org/payment-gateway',
+    websiteLink: 'https://payment-gateway.internal.example.com',
     appSettings: `{
   "Environment": "QA",
   "ConnectionStrings": {
@@ -52,6 +75,21 @@ export const INITIAL_REPOS: Repo[] = [
     "RetryAttempts": 5
   }
 }`,
+    appSettingsDevelopment: `{
+  "Environment": "Development",
+  "ConnectionStrings": {
+    "PaymentDb": "Server=localhost;Database=PaymentDb_Dev;Trusted_Connection=True;"
+  },
+  "Providers": {
+    "Primary": "Stripe-Sandbox",
+    "Fallback": "Adyen-Sandbox",
+    "TimeoutMs": 30000
+  },
+  "Webhooks": {
+    "SigningSecret": "whsec_dev_placeholder",
+    "RetryAttempts": 1
+  }
+}`,
   },
   {
     id: 'user-auth-service',
@@ -60,6 +98,7 @@ export const INITIAL_REPOS: Repo[] = [
     team: 'Platform',
     qaLink: 'https://qa.internal.example.com/user-auth-service',
     repoLink: 'https://github.com/example-org/user-auth-service',
+    websiteLink: 'https://user-auth-service.internal.example.com',
     appSettings: `{
   "Environment": "QA",
   "Jwt": {
@@ -75,6 +114,21 @@ export const INITIAL_REPOS: Repo[] = [
     "RequireSymbol": true
   }
 }`,
+    appSettingsDevelopment: `{
+  "Environment": "Development",
+  "Jwt": {
+    "Issuer": "launchpad-auth-dev",
+    "Audience": "internal-services",
+    "ExpiryMinutes": 1440
+  },
+  "ConnectionStrings": {
+    "AuthDb": "Server=localhost;Database=AuthDb_Dev;Trusted_Connection=True;"
+  },
+  "PasswordPolicy": {
+    "MinLength": 6,
+    "RequireSymbol": false
+  }
+}`,
   },
   {
     id: 'notification-service',
@@ -83,6 +137,7 @@ export const INITIAL_REPOS: Repo[] = [
     team: 'Platform',
     qaLink: 'https://qa.internal.example.com/notification-service',
     repoLink: 'https://github.com/example-org/notification-service',
+    websiteLink: 'https://notification-service.internal.example.com',
     appSettings: `{
   "Environment": "QA",
   "Providers": {
@@ -98,6 +153,21 @@ export const INITIAL_REPOS: Repo[] = [
     "DefaultLocale": "en-US"
   }
 }`,
+    appSettingsDevelopment: `{
+  "Environment": "Development",
+  "Providers": {
+    "Email": "SendGrid-Sandbox",
+    "Sms": "Twilio-Test",
+    "Push": "Firebase-Dev"
+  },
+  "RateLimits": {
+    "EmailPerMinute": 10000,
+    "SmsPerMinute": 10000
+  },
+  "Templates": {
+    "DefaultLocale": "en-US"
+  }
+}`,
   },
   {
     id: 'order-management',
@@ -106,6 +176,7 @@ export const INITIAL_REPOS: Repo[] = [
     team: 'Commerce',
     qaLink: 'https://qa.internal.example.com/order-management',
     repoLink: 'https://github.com/example-org/order-management',
+    websiteLink: 'https://order-management.internal.example.com',
     appSettings: `{
   "Environment": "QA",
   "ConnectionStrings": {
@@ -120,6 +191,20 @@ export const INITIAL_REPOS: Repo[] = [
     "PaymentGateway": "https://qa.internal.example.com/payment-gateway"
   }
 }`,
+    appSettingsDevelopment: `{
+  "Environment": "Development",
+  "ConnectionStrings": {
+    "OrderDb": "Server=localhost;Database=OrderDb_Dev;Trusted_Connection=True;"
+  },
+  "EventBus": {
+    "Broker": "Kafka-Local",
+    "Topic": "order-state-events-dev"
+  },
+  "Dependencies": {
+    "InvoiceService": "https://localhost:5001",
+    "PaymentGateway": "https://localhost:5002"
+  }
+}`,
   },
   {
     id: 'inventory-service',
@@ -128,6 +213,7 @@ export const INITIAL_REPOS: Repo[] = [
     team: 'Commerce',
     qaLink: 'https://qa.internal.example.com/inventory-service',
     repoLink: 'https://github.com/example-org/inventory-service',
+    websiteLink: 'https://inventory-service.internal.example.com',
     appSettings: `{
   "Environment": "QA",
   "ConnectionStrings": {
@@ -136,6 +222,16 @@ export const INITIAL_REPOS: Repo[] = [
   "Warehouses": {
     "DefaultRegion": "US-EAST",
     "SyncIntervalMinutes": 15
+  }
+}`,
+    appSettingsDevelopment: `{
+  "Environment": "Development",
+  "ConnectionStrings": {
+    "InventoryDb": "Server=localhost;Database=InventoryDb_Dev;Trusted_Connection=True;"
+  },
+  "Warehouses": {
+    "DefaultRegion": "US-EAST",
+    "SyncIntervalMinutes": 1
   }
 }`,
   },
