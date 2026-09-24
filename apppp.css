@@ -1,0 +1,127 @@
+.shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 48px 32px 80px;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.hero__intro {
+  max-width: 560px;
+}
+
+.hero__kicker {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.hero__title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  margin-bottom: 10px;
+}
+
+.hero__subtitle {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 10px 16px;
+  min-width: 260px;
+  transition: border-color 150ms var(--ease-out), box-shadow 150ms var(--ease-out);
+}
+
+.search:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary-soft);
+}
+
+.search__icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-ink-faint);
+  flex-shrink: 0;
+}
+
+.search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13.5px;
+  font-family: var(--font-ui);
+  color: var(--color-ink);
+  width: 100%;
+}
+
+.search input::placeholder {
+  color: var(--color-ink-faint);
+}
+
+.board__bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.board__count {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-ink-faint);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.empty {
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  padding: 48px 24px;
+  text-align: center;
+  background: var(--color-surface);
+}
+
+.empty__title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.empty__body {
+  font-size: 13.5px;
+  color: var(--color-ink-soft);
+}
+
+@media (max-width: 640px) {
+  .shell {
+    padding: 32px 18px 60px;
+  }
+  .hero {
+    align-items: flex-start;
+  }
+  .search {
+    width: 100%;
+  }
+}
