@@ -39,6 +39,16 @@
   background: var(--color-teal-soft);
 }
 
+.link-action__trigger--amber {
+  color: var(--color-amber);
+}
+.link-action__trigger--amber .link-action__icon {
+  color: var(--color-amber);
+}
+.link-action__trigger--amber:hover {
+  background: var(--color-amber-soft);
+}
+
 .link-action__trigger:active {
   transform: scale(0.97);
 }
