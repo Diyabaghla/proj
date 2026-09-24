@@ -51,6 +51,7 @@
 @if (activeRepo(); as repo) {
   <app-appsettings-modal
     [repo]="repo"
+    [fileType]="activeFileType()"
     (closed)="closeModal()"
     (copied)="showToast($event)"
     (saved)="saveAppSettings($event)"
