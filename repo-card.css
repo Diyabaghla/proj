@@ -1,0 +1,113 @@
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 220ms var(--ease-out), transform 220ms var(--ease-out), border-color 220ms var(--ease-out);
+  animation: card-in 480ms var(--ease-out) both;
+  animation-delay: calc(var(--stagger, 0) * 55ms);
+}
+
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-border-strong);
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card__badge {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  background: linear-gradient(150deg, var(--color-primary-soft), var(--color-teal-soft));
+  color: var(--color-primary-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.card__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.card__name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__team {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+}
+
+.card__description {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--color-ink-soft);
+  min-height: 42px;
+}
+
+.card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 2px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-bg-soft);
+}
+
+.card__settings-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-amber);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  transition: background 150ms var(--ease-out), border-color 150ms var(--ease-out), transform 120ms var(--ease-out);
+}
+
+.card__settings-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.card__settings-btn:hover {
+  background: var(--color-amber-soft);
+  border-color: var(--color-border-strong);
+}
+
+.card__settings-btn:active {
+  transform: scale(0.97);
+}
