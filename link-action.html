@@ -3,6 +3,7 @@
     type="button"
     class="link-action__trigger"
     [class.link-action__trigger--teal]="variant() === 'teal'"
+    [class.link-action__trigger--amber]="variant() === 'amber'"
     [class.link-action__trigger--open]="open()"
     (click)="toggle($event)"
     [attr.aria-expanded]="open()"
