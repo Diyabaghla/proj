@@ -1,6 +1,12 @@
 import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
-import { Repo } from '../../models/repo.model';
+import { Repo, SettingsFileType } from '../../models/repo.model';
 import { LinkActionComponent } from '../link-action/link-action.component';
+
+/** Payload emitted when a settings-file chip is clicked. */
+export interface OpenSettingsEvent {
+  repo: Repo;
+  fileType: SettingsFileType;
+}
 
 @Component({
   selector: 'app-repo-card',
@@ -15,7 +21,7 @@ export class RepoCardComponent {
   index = input<number>(0);
 
   copied = output<string>();
-  openAppSettings = output<Repo>();
+  openAppSettings = output<OpenSettingsEvent>();
 
   initials = computed(() =>
     this.repo()
@@ -23,7 +29,7 @@ export class RepoCardComponent {
       .slice(0, 2) || this.repo().name.slice(0, 2).toUpperCase()
   );
 
-  onOpenAppSettings(): void {
-    this.openAppSettings.emit(this.repo());
+  onOpenAppSettings(fileType: SettingsFileType): void {
+    this.openAppSettings.emit({ repo: this.repo(), fileType });
   }
 }
