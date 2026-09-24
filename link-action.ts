@@ -21,7 +21,7 @@ export class LinkActionComponent {
 
   label = input.required<string>();
   url = input.required<string>();
-  variant = input<'primary' | 'teal'>('primary');
+  variant = input<'primary' | 'teal' | 'amber'>('primary');
 
   copied = output<string>();
 
