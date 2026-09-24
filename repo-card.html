@@ -21,11 +21,29 @@
       [url]="repo().repoLink"
       (copied)="copied.emit($event)"
     />
-    <button type="button" class="card__settings-btn" (click)="onOpenAppSettings()">
-      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <path d="M4.5 5.5h11M4.5 10h11M4.5 14.5h6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      appsettings.json
-    </button>
+    <app-link-action
+      label="Website"
+      [url]="repo().websiteLink"
+      variant="amber"
+      (copied)="copied.emit($event)"
+    />
+  </div>
+
+  <div class="card__files">
+    <span class="card__files-label">Config</span>
+    <div class="card__files-row">
+      <button type="button" class="card__settings-btn" (click)="onOpenAppSettings('production')">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M4.5 5.5h11M4.5 10h11M4.5 14.5h6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        appsettings.json
+      </button>
+      <button type="button" class="card__settings-btn card__settings-btn--dev" (click)="onOpenAppSettings('development')">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M4.5 5.5h11M4.5 10h11M4.5 14.5h6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        appsettings.development.json
+      </button>
+    </div>
   </div>
 </article>
