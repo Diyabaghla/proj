@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
-import { Repo } from './models/repo.model';
+import { Repo, SettingsFileType } from './models/repo.model';
 import { INITIAL_REPOS } from './data/repos.data';
-import { RepoCardComponent } from './components/repo-card/repo-card.component';
+import { RepoCardComponent, OpenSettingsEvent } from './components/repo-card/repo-card.component';
 import { AppsettingsModalComponent } from './components/appsettings-modal/appsettings-modal.component';
 import { ToastComponent } from './components/toast/toast.component';
 
@@ -17,6 +17,7 @@ export class AppComponent {
   repos = signal<Repo[]>(INITIAL_REPOS);
   query = signal('');
   activeRepoId = signal<string | null>(null);
+  activeFileType = signal<SettingsFileType>('production');
   toastMessage = signal<string | null>(null);
 
   private toastTimer?: ReturnType<typeof setTimeout>;
@@ -37,17 +38,23 @@ export class AppComponent {
     this.query.set(value);
   }
 
-  openAppSettings(repo: Repo): void {
-    this.activeRepoId.set(repo.id);
+  openAppSettings(event: OpenSettingsEvent): void {
+    this.activeRepoId.set(event.repo.id);
+    this.activeFileType.set(event.fileType);
   }
 
   closeModal(): void {
     this.activeRepoId.set(null);
   }
 
-  saveAppSettings(update: { id: string; content: string }): void {
+  saveAppSettings(update: { id: string; fileType: SettingsFileType; content: string }): void {
     this.repos.update((list) =>
-      list.map((r) => (r.id === update.id ? { ...r, appSettings: update.content } : r))
+      list.map((r) => {
+        if (r.id !== update.id) return r;
+        return update.fileType === 'development'
+          ? { ...r, appSettingsDevelopment: update.content }
+          : { ...r, appSettings: update.content };
+      })
     );
   }
 
