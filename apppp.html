@@ -1,0 +1,61 @@
+<div class="shell">
+  <header class="hero">
+    <div class="hero__intro">
+      <p class="hero__kicker">Internal tools</p>
+      <h1 class="hero__title">Developer LaunchPad</h1>
+      <p class="hero__subtitle">
+        QA links, Swagger endpoints, appsettings and local setup docs for every service —
+        in one place instead of five tabs and a wiki search.
+      </p>
+    </div>
+
+    <label class="search">
+      <svg class="search__icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M13.2 13.2 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <input
+        type="text"
+        placeholder="Find a service or team…"
+        [value]="query()"
+        (input)="onSearch($any($event.target).value)"
+      />
+    </label>
+  </header>
+
+  <section class="board">
+    <div class="board__bar">
+      <span class="board__count">{{ filteredRepos().length }} of {{ totalCount() }} services</span>
+    </div>
+
+    @if (filteredRepos().length) {
+      <div class="grid">
+        @for (repo of filteredRepos(); track repo.id; let i = $index) {
+          <app-repo-card
+            [repo]="repo"
+            [index]="i"
+            (copied)="showToast($event)"
+            (openAppSettings)="openAppSettings($event)"
+          />
+        }
+      </div>
+    } @else {
+      <div class="empty">
+        <p class="empty__title">No services match “{{ query() }}”</p>
+        <p class="empty__body">Try a different service or team name.</p>
+      </div>
+    }
+  </section>
+</div>
+
+@if (activeRepo(); as repo) {
+  <app-appsettings-modal
+    [repo]="repo"
+    (closed)="closeModal()"
+    (copied)="showToast($event)"
+    (saved)="saveAppSettings($event)"
+    (deleted)="deleteRepo($event)"
+  />
+}
+
+<app-toast [message]="toastMessage()" />
