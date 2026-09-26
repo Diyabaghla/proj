@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { Repo, SettingsFileType } from '../../models/repo.model';
 import { LinkActionComponent } from '../link-action/link-action.component';
-
+import { CardMenuComponent } from '../card-menu/card-menu.component';
 /** Payload emitted when a settings-file chip is clicked. */
 export interface OpenSettingsEvent {
   repo: Repo;
@@ -11,7 +11,7 @@ export interface OpenSettingsEvent {
 @Component({
   selector: 'app-repo-card',
   standalone: true,
-  imports: [LinkActionComponent],
+  imports: [LinkActionComponent,CardMenuComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './repo-card.component.html',
   styleUrl: './repo-card.component.css',
@@ -21,6 +21,8 @@ export class RepoCardComponent {
   index = input<number>(0);
 
   copied = output<string>();
+  addLink = output<Repo>();
+  deleteRepo = output<string>();
   openAppSettings = output<OpenSettingsEvent>();
 
   initials = computed(() =>
