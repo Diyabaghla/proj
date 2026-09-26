@@ -54,6 +54,7 @@ export const INITIAL_REPOS: Repo[] = [
     extraLinks: [
       { id: 'invoice-local-setup', label: 'Local setup doc', url: 'https://wiki.internal.example.com/invoice-service/local-setup' },
     ],
+    dependencies: ['payment-gateway', 'notification-service'],
   },
   {
     id: 'payment-gateway',
@@ -96,6 +97,7 @@ export const INITIAL_REPOS: Repo[] = [
     extraLinks: [
       { id: 'payment-runbook', label: 'Incident runbook', url: 'https://wiki.internal.example.com/payment-gateway/runbook' },
     ],
+    dependencies: ['user-auth-service'],
   },
   {
     id: 'user-auth-service',
@@ -136,6 +138,7 @@ export const INITIAL_REPOS: Repo[] = [
   }
 }`,
     extraLinks: [],
+    dependencies: [],
   },
   {
     id: 'notification-service',
@@ -176,6 +179,7 @@ export const INITIAL_REPOS: Repo[] = [
   }
 }`,
     extraLinks: [],
+    dependencies: [],
   },
   {
     id: 'order-management',
@@ -214,6 +218,7 @@ export const INITIAL_REPOS: Repo[] = [
   }
 }`,
     extraLinks: [],
+    dependencies: ['invoice-service', 'payment-gateway', 'inventory-service'],
   },
   {
     id: 'inventory-service',
@@ -244,5 +249,6 @@ export const INITIAL_REPOS: Repo[] = [
   }
 }`,
     extraLinks: [],
+    dependencies: [],
   },
 ];
