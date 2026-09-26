@@ -73,7 +73,7 @@
       <div class="confirm">
         <div class="confirm__panel">
           <p class="confirm__title">Delete {{ repo().name }} from LaunchPad?</p>
-          <p class="confirm__body">This removes the card and both its settings files (appsettings.json and appsettings.development.json) from this dashboard. This can't be undone here.</p>
+          <p class="confirm__body">This removes the card and both its settings files (appsettings.json and appsettings.local.json) from this dashboard. This can't be undone here.</p>
           <div class="confirm__actions">
             <button type="button" class="modal__btn" (click)="cancelDelete()">Keep repo</button>
             <button type="button" class="modal__btn modal__btn--danger modal__btn--fill" (click)="confirmDelete()">Delete repo</button>
