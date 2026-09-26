@@ -1,0 +1,111 @@
+.card-menu {
+  position: relative;
+}
+
+.card-menu__trigger {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-ink-faint);
+  border-radius: 8px;
+  transition: background 150ms var(--ease-out), color 150ms var(--ease-out), transform 200ms var(--ease-out);
+}
+
+.card-menu__trigger svg {
+  width: 16px;
+  height: 16px;
+}
+
+.card-menu__trigger:hover {
+  background: var(--color-bg-soft);
+  color: var(--color-ink);
+}
+
+.card-menu__trigger--open {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  transform: rotate(90deg);
+}
+
+.card-menu__dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 220px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-pop);
+  padding: 6px;
+  z-index: 40;
+  transform-origin: top right;
+  animation: menu-in 150ms var(--ease-out);
+}
+
+@keyframes menu-in {
+  from { opacity: 0; transform: scale(0.92) translateY(-4px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.card-menu__item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  color: var(--color-ink);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 9px;
+  border-radius: 7px;
+  transition: background 120ms var(--ease-out);
+}
+
+.card-menu__item svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.card-menu__item:hover {
+  background: var(--color-bg-soft);
+}
+
+.card-menu__item--danger {
+  color: var(--color-danger);
+}
+.card-menu__item--danger:hover {
+  background: var(--color-danger-soft);
+}
+
+.card-menu__item--danger-fill {
+  background: var(--color-danger);
+  color: #fff;
+  justify-content: center;
+}
+.card-menu__item--danger-fill:hover {
+  background: #A6321F;
+}
+
+.card-menu__confirm-text {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--color-ink-soft);
+  padding: 6px 9px 8px;
+}
+
+.card-menu__confirm-row {
+  display: flex;
+  gap: 6px;
+  padding: 0 2px 2px;
+}
+
+.card-menu__confirm-row .card-menu__item {
+  flex: 1;
+}
