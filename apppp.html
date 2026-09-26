@@ -36,6 +36,8 @@
             [index]="i"
             (copied)="showToast($event)"
             (openAppSettings)="openAppSettings($event)"
+            (addLink)="openAddLink($event)"
+            (deleteRepo)="deleteRepo($event)"
           />
         }
       </div>
@@ -56,6 +58,14 @@
     (copied)="showToast($event)"
     (saved)="saveAppSettings($event)"
     (deleted)="deleteRepo($event)"
+  />
+}
+
+@if (addLinkRepo(); as repo) {
+  <app-add-link-modal
+    [repo]="repo"
+    (closed)="closeAddLink()"
+    (added)="addExtraLink($event)"
   />
 }
 
