@@ -1,4 +1,11 @@
 <article class="card" [style.--stagger]="index()">
+  <app-card-menu
+    class="card__menu"
+    [repo]="repo()"
+    (addLink)="addLink.emit($event)"
+    (deleteRepo)="deleteRepo.emit($event)"
+  />
+
   <header class="card__header">
     <div class="card__badge">{{ initials() }}</div>
     <div class="card__heading">
@@ -22,11 +29,18 @@
       (copied)="copied.emit($event)"
     />
     <app-link-action
-      label="Website"
-      [url]="repo().websiteLink"
+      label="App link"
+      [url]="repo().appLink"
       variant="amber"
       (copied)="copied.emit($event)"
     />
+    @for (link of repo().extraLinks; track link.id) {
+      <app-link-action
+        [label]="link.label"
+        [url]="link.url"
+        (copied)="copied.emit($event)"
+      />
+    }
   </div>
 
   <div class="card__files">
@@ -38,11 +52,11 @@
         </svg>
         appsettings.json
       </button>
-      <button type="button" class="card__settings-btn card__settings-btn--dev" (click)="onOpenAppSettings('development')">
+      <button type="button" class="card__settings-btn card__settings-btn--dev" (click)="onOpenAppSettings('local')">
         <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <path d="M4.5 5.5h11M4.5 10h11M4.5 14.5h6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
-        appsettings.development.json
+        appsettings.local.json
       </button>
     </div>
   </div>
