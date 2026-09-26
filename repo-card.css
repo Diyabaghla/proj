@@ -1,4 +1,6 @@
 .card {
+  position: relative;
+  z-index: 1;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -12,6 +14,20 @@
   animation-delay: calc(var(--stagger, 0) * 55ms);
 }
 
+/*
+ * Bug fix: .card gets its own CSS stacking context (the entrance/hover
+ * `transform` triggers this), which traps any popover's z-index *inside*
+ * that context. Without this rule, a popover opened in an earlier card
+ * renders *behind* later cards in the grid, since the cards themselves are
+ * stacked by DOM order. When a card contains an open link popover or an
+ * open kebab dropdown, lift the whole card above its siblings so the
+ * popover is fully visible.
+ */
+.card:has(.link-action__popover),
+.card:has(.card-menu__dropdown) {
+  z-index: 30;
+}
+
 @keyframes card-in {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
@@ -23,10 +39,17 @@
   border-color: var(--color-border-strong);
 }
 
+.card__menu {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
 .card__header {
   display: flex;
   align-items: center;
   gap: 12px;
+  padding-right: 34px;
 }
 
 .card__badge {
@@ -43,6 +66,11 @@
   font-weight: 600;
   font-size: 13px;
   letter-spacing: 0.02em;
+  transition: transform 220ms var(--ease-out);
+}
+
+.card:hover .card__badge {
+  transform: scale(1.06) rotate(-2deg);
 }
 
 .card__heading {
@@ -81,6 +109,18 @@
   margin-top: 2px;
   padding-top: 14px;
   border-top: 1px solid var(--color-bg-soft);
+}
+
+/* Animate in any link chip the moment it's added to the DOM — covers both
+   the initial three chips and any extra link added later via the ⋮ menu. */
+app-link-action {
+  display: inline-flex;
+  animation: chip-in 260ms var(--ease-out);
+}
+
+@keyframes chip-in {
+  from { opacity: 0; transform: scale(0.9) translateY(3px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .card__files {
