@@ -16,6 +16,7 @@ export interface Repo {
   appSettingsLocal: string; // appsettings.local.json content
   /** Extra links a developer added themselves via the card's ⋮ menu (setup docs, Postman collections, etc.). */
   extraLinks: ExtraLink[];
+  dependencies: string[];
 }
 
 /** Which settings file the modal is currently showing. */
