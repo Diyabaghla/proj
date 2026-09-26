@@ -35,10 +35,9 @@ export class AppsettingsModalComponent {
   );
 
   lineCount = computed(() => this.draft().split('\n').length);
-
-  private currentContent(): string {
-    return this.fileType() === 'development'
-      ? this.repo().appSettingsDevelopment
+private currentContent(): string {
+    return this.fileType() === 'local'
+      ? this.repo().appSettingsLocal
       : this.repo().appSettings;
   }
 
