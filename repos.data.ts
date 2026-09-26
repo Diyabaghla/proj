@@ -8,7 +8,7 @@ export const INITIAL_REPOS: Repo[] = [
     team: 'Billing',
     qaLink: 'https://qa.internal.example.com/invoice-service',
     repoLink: 'https://github.com/example-org/invoice-service',
-    websiteLink: 'https://invoice-service.internal.example.com',
+    appLink: 'https://invoice-service.internal.example.com',
     appSettings: `{
   "Environment": "QA",
   "ConnectionStrings": {
@@ -30,8 +30,8 @@ export const INITIAL_REPOS: Repo[] = [
     "NotificationService": "https://qa.internal.example.com/notification-service"
   }
 }`,
-    appSettingsDevelopment: `{
-  "Environment": "Development",
+    appSettingsLocal: `{
+  "Environment": "Local",
   "ConnectionStrings": {
     "InvoiceDb": "Server=localhost;Database=InvoiceDb_Dev;Trusted_Connection=True;"
   },
@@ -51,6 +51,9 @@ export const INITIAL_REPOS: Repo[] = [
     "NotificationService": "https://localhost:5003"
   }
 }`,
+    extraLinks: [
+      { id: 'invoice-local-setup', label: 'Local setup doc', url: 'https://wiki.internal.example.com/invoice-service/local-setup' },
+    ],
   },
   {
     id: 'payment-gateway',
@@ -59,7 +62,7 @@ export const INITIAL_REPOS: Repo[] = [
     team: 'Payments',
     qaLink: 'https://qa.internal.example.com/payment-gateway',
     repoLink: 'https://github.com/example-org/payment-gateway',
-    websiteLink: 'https://payment-gateway.internal.example.com',
+    appLink: 'https://payment-gateway.internal.example.com',
     appSettings: `{
   "Environment": "QA",
   "ConnectionStrings": {
@@ -75,8 +78,8 @@ export const INITIAL_REPOS: Repo[] = [
     "RetryAttempts": 5
   }
 }`,
-    appSettingsDevelopment: `{
-  "Environment": "Development",
+    appSettingsLocal: `{
+  "Environment": "Local",
   "ConnectionStrings": {
     "PaymentDb": "Server=localhost;Database=PaymentDb_Dev;Trusted_Connection=True;"
   },
@@ -90,6 +93,9 @@ export const INITIAL_REPOS: Repo[] = [
     "RetryAttempts": 1
   }
 }`,
+    extraLinks: [
+      { id: 'payment-runbook', label: 'Incident runbook', url: 'https://wiki.internal.example.com/payment-gateway/runbook' },
+    ],
   },
   {
     id: 'user-auth-service',
@@ -98,7 +104,7 @@ export const INITIAL_REPOS: Repo[] = [
     team: 'Platform',
     qaLink: 'https://qa.internal.example.com/user-auth-service',
     repoLink: 'https://github.com/example-org/user-auth-service',
-    websiteLink: 'https://user-auth-service.internal.example.com',
+    appLink: 'https://user-auth-service.internal.example.com',
     appSettings: `{
   "Environment": "QA",
   "Jwt": {
@@ -114,8 +120,8 @@ export const INITIAL_REPOS: Repo[] = [
     "RequireSymbol": true
   }
 }`,
-    appSettingsDevelopment: `{
-  "Environment": "Development",
+    appSettingsLocal: `{
+  "Environment": "Local",
   "Jwt": {
     "Issuer": "launchpad-auth-dev",
     "Audience": "internal-services",
@@ -129,6 +135,7 @@ export const INITIAL_REPOS: Repo[] = [
     "RequireSymbol": false
   }
 }`,
+    extraLinks: [],
   },
   {
     id: 'notification-service',
@@ -137,7 +144,7 @@ export const INITIAL_REPOS: Repo[] = [
     team: 'Platform',
     qaLink: 'https://qa.internal.example.com/notification-service',
     repoLink: 'https://github.com/example-org/notification-service',
-    websiteLink: 'https://notification-service.internal.example.com',
+    appLink: 'https://notification-service.internal.example.com',
     appSettings: `{
   "Environment": "QA",
   "Providers": {
@@ -153,8 +160,8 @@ export const INITIAL_REPOS: Repo[] = [
     "DefaultLocale": "en-US"
   }
 }`,
-    appSettingsDevelopment: `{
-  "Environment": "Development",
+    appSettingsLocal: `{
+  "Environment": "Local",
   "Providers": {
     "Email": "SendGrid-Sandbox",
     "Sms": "Twilio-Test",
@@ -168,6 +175,7 @@ export const INITIAL_REPOS: Repo[] = [
     "DefaultLocale": "en-US"
   }
 }`,
+    extraLinks: [],
   },
   {
     id: 'order-management',
@@ -176,7 +184,7 @@ export const INITIAL_REPOS: Repo[] = [
     team: 'Commerce',
     qaLink: 'https://qa.internal.example.com/order-management',
     repoLink: 'https://github.com/example-org/order-management',
-    websiteLink: 'https://order-management.internal.example.com',
+    appLink: 'https://order-management.internal.example.com',
     appSettings: `{
   "Environment": "QA",
   "ConnectionStrings": {
@@ -191,8 +199,8 @@ export const INITIAL_REPOS: Repo[] = [
     "PaymentGateway": "https://qa.internal.example.com/payment-gateway"
   }
 }`,
-    appSettingsDevelopment: `{
-  "Environment": "Development",
+    appSettingsLocal: `{
+  "Environment": "Local",
   "ConnectionStrings": {
     "OrderDb": "Server=localhost;Database=OrderDb_Dev;Trusted_Connection=True;"
   },
@@ -205,6 +213,7 @@ export const INITIAL_REPOS: Repo[] = [
     "PaymentGateway": "https://localhost:5002"
   }
 }`,
+    extraLinks: [],
   },
   {
     id: 'inventory-service',
@@ -213,7 +222,7 @@ export const INITIAL_REPOS: Repo[] = [
     team: 'Commerce',
     qaLink: 'https://qa.internal.example.com/inventory-service',
     repoLink: 'https://github.com/example-org/inventory-service',
-    websiteLink: 'https://inventory-service.internal.example.com',
+    appLink: 'https://inventory-service.internal.example.com',
     appSettings: `{
   "Environment": "QA",
   "ConnectionStrings": {
@@ -224,8 +233,8 @@ export const INITIAL_REPOS: Repo[] = [
     "SyncIntervalMinutes": 15
   }
 }`,
-    appSettingsDevelopment: `{
-  "Environment": "Development",
+    appSettingsLocal: `{
+  "Environment": "Local",
   "ConnectionStrings": {
     "InventoryDb": "Server=localhost;Database=InventoryDb_Dev;Trusted_Connection=True;"
   },
@@ -234,5 +243,6 @@ export const INITIAL_REPOS: Repo[] = [
     "SyncIntervalMinutes": 1
   }
 }`,
+    extraLinks: [],
   },
 ];
