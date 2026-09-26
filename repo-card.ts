@@ -7,6 +7,10 @@ export interface OpenSettingsEvent {
   repo: Repo;
   fileType: SettingsFileType;
 }
+export interface DependencyChip {
+  id: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-repo-card',
