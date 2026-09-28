@@ -180,3 +180,16 @@ export class AppComponent {
     this.toastTimer = setTimeout(() => this.toastMessage.set(null), 2200);
   }
 }
+  saveBatFile(payload: { repoId: string; name: string; content: string }): void {
+    this.repos.update((list) =>
+      list.map((r) =>
+        r.id === payload.repoId ? { ...r, batFile: { name: payload.name, content: payload.content } } : r
+      )
+    );
+    this.showToast(`${payload.name} uploaded`);
+  }
+
+  removeBatFile(repoId: string): void {
+    this.repos.update((list) => list.map((r) => (r.id === repoId ? { ...r, batFile: undefined } : r)));
+    this.showToast('Script removed');
+  }
