@@ -94,4 +94,20 @@
       </div>
     </div>
   }
+          @if (repo().batFile; as bat) {
+    <div class="card__files">
+      <span class="card__files-label">Script</span>
+      <div class="bat-chip">
+        <button type="button" class="bat-chip__main" (click)="downloadBat()" title="Download {{ bat.name }}">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 3.5v9M6.5 9.5 10 13l3.5-3.5M4.5 16h11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          {{ bat.name }}
+        </button>
+        <button type="button" class="bat-chip__remove" (click)="removeBat.emit(repo().id)" aria-label="Remove {{ bat.name }}">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  }
 </article>
